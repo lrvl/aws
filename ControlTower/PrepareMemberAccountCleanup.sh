@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Purpose: Remove leftover ControlTower resources in order to prepare Re-registrion
+# Purpose: Remove leftover ControlTower resources in order to prepare Re-registration into the OU 
 # Notice : WARNING this script will damage your account - use with care!
 # Author : Leroy van Logchem
 # Assumed: Can be used in the AWS CloudShell environment (no install requirements)
