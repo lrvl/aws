@@ -12,7 +12,7 @@ for region in $(aws ec2 describe-regions | jq -r .Regions[].RegionName | grep -E
 do
         export AWS_REGION=$region
         echo "Region = $region"
-        for i in $(aws --region=$region cloudformation describe-stacks | jq -r '.Stacks[].StackName')
+        for i in $(aws --region=$region cloudformation describe-stacks | jq -r '.Stacks[].StackName' | grep StackSet-AWSControlTower)
         do
                 echo "Stack $i"; aws cloudformation delete-stack --stack-name $i;
         done
