@@ -21,7 +21,7 @@ do
         aws --region=$region configservice delete-aggregation-authorization --authorized-account-id $MASTERACCOUNT --authorized-aws-region "$region"
         aws --region=$region events list-rules | jq -r .Rules[].Name
         echo "Events = $region"
-        for rule in $(aws --region=$region events list-rules | jq -r .Rules[].Name)
+        for rule in $(aws --region=$region events list-rules | jq -r .Rules[].Name | grep controltower)
         do
                 aws --region=$region events delete-rule --name $rule
         done
